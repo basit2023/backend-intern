@@ -2,12 +2,15 @@
 
 const express = require('express');
 const dotenv = require('dotenv');
-
+const router=require('./routes/routes')
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8080;
 console.log("the env vars:",process.env.PORT)
 
+
+
+app.use("/api", router);
 app.get('/', (req, res) => {
   res.send('Hello, Node.js with Express!');
 });
