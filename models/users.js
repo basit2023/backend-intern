@@ -6,3 +6,13 @@ const users = [
     { id: 5, name: "basit", email: "basit@example.com" }
 ];
 module.exports = users;
+
+const mongoose = require("mongoose");
+
+const UserSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    
+});
+
+module.exports = mongoose.model("UserData", UserSchema);

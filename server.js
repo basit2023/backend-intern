@@ -3,12 +3,13 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const router=require('./routes/routes')
+const connectDB=require('./db/connectDB')
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8080;
 console.log("the env vars:",process.env.PORT)
-
-
+connectDB()
+app.use(express.json());
 
 app.use("/api", router);
 app.get('/', (req, res) => {
